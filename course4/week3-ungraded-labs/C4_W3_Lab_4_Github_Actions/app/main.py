@@ -9,6 +9,7 @@ from pydantic import BaseModel, conlist
 app = FastAPI(title="Predicting Wine Class with batching")
 
 # Open classifier in global scope
+# This is done because you will be performing unit tests on the classifier without starting the server.
 with open("models/wine.pkl", "rb") as file:
     clf = pickle.load(file)
 
